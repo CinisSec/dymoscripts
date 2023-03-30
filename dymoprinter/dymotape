@@ -1,0 +1,20 @@
+#!/bin/bash
+length=$(expr length "$1")
+if (($length < 11))
+then
+	{
+	echo "$1" | lp -d dymotape -o media=Custom.6x22mm /dev/stdin
+	}
+elif (($length < 15))
+then
+	{
+	echo "$1" | lp -d dymotape -o media=Custom.6x30mm /dev/stdin
+	}
+elif (($length < 27))
+then	
+	{
+	echo "$1" | lp -d dymotape -o media=Custom.6x60mm /dev/stdin
+	}
+else 	
+	echo "String is too long. I'm sorry..."
+fi
